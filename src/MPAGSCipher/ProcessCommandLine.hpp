@@ -1,8 +1,8 @@
 #ifndef MPAGSCIPHER_PROCESSCOMMANDLINE_HPP
 #define MPAGSCIPHER_PROCESSCOMMANDLINE_HPP
 
+#include "CipherFactory.hpp"
 #include "CipherMode.hpp"
-#include "CipherType.hpp"
 
 #include <string>
 #include <vector>
@@ -31,6 +31,8 @@ struct ProgramSettings {
     CipherMode cipherMode{CipherMode::Encrypt};
     /// Flag indicating which cipher to use (e.g. Caesar, Playfair, etc.)
     CipherType cipherType{CipherType::Caesar};
+    /// Flag indicating the number of ciphers to run in sequence
+    size_t nExpectedCiphers{1};
 };
 
 /**

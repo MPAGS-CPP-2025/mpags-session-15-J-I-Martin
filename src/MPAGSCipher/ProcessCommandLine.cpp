@@ -98,6 +98,21 @@ bool processCommandLine(const std::vector<std::string>& cmdLineArgs,
                 }
                 ++i;
             }
+        } else if (cmdLineArgs[i] == "--multi-cipher") {
+            // Handle multi-cipher option
+            // Next element is the number of ciphers unless --multi-cipher is the last argument
+            if (i == nCmdLineArgs - 1) {
+                std::cerr
+                    << "[error] --multi-cipher requires a positive integer argument"
+                    << std::endl;
+                // Set the flag to indicate the error and terminate the loop
+                processStatus = false;
+                break;
+            } else {
+                // Got the number of ciphers, so assign the value and advance past it
+                settings.nExpectedCiphers = std::stoul(cmdLineArgs[i + 1]);
+                ++i;
+            }
         } else {
             // Have encoutered an unknown flag, output an error message,
             // set the flag to indicate the error and terminate the loop
