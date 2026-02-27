@@ -60,3 +60,9 @@ TEST(VigenereCipher, Decrypt)
                    "ALTDWZUFTHLEWZBNQPDGHKPDCALPVSFATWZUIPOHVVPASHXLQSDXTXSZ",
                    "THISISQUITEALONGMESSAGESOTHEKEYWILLNEEDTOREPEATAFEWTIMES"));
 }
+
+TEST(CaesarCipher, MultiCipher)
+{
+    // Using the process command line argument to apply nExpectedCiphers ciphers in sequence
+    CaesarCipher cc{10};
+}
